@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="DarkMode.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">Sport News</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <button onclick="logOut()" class="btn btn-danger">Log Out</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Profile Page -->
+    <main class="container mt-4">
+        <div class="row">
+            <!-- Profile Sidebar -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <img id="profilePic" src="images/default-avatar.png" alt="Profile Picture" class="rounded-circle mb-3" width="150">
+                        <input type="file" id="uploadProfilePic" style="display:none;" onchange="updateProfilePic(event)">
+                        <button onclick="document.getElementById('uploadProfilePic').click()" class="btn btn-primary btn-sm">
+                            Upload Picture
+                        </button>
+                        <h3 id="profileName" class="mt-3"></h3>
+                        <p id="profileEmail"></p>
+                        <button class="btn btn-secondary btn-sm" onclick="editProfile()">Edit Profile</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Main Content -->
+            <div class="col-md-8">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h4>Welcome Back, <span id="welcomeName"></span>!</h4>
+                        <p>Stay updated with your favorite sports and news.</p>
+                    </div>
+                </div>
+
+                <!-- Preferences Section -->
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h4>Preferences</h4>
+                        <form id="preferencesForm">
+                            <div class="form-group">
+                                <label for="sportsPreferences">Favorite Sports:</label>
+                                <select id="sportsPreferences" class="form-control" multiple>
+                                    <option value="football">Football</option>
+                                    <option value="basketball">Basketball</option>
+                                    <option value="volleyball">Volleyball</option>
+                                    <option value="tennis">Tennis</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-success">Save Preferences</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Settings Section -->
+                <div class="card">
+                    <div class="card-body">
+                        <h4>Settings</h4>
+                        <button class="btn btn-secondary mb-2" onclick="toggleTheme()">Toggle Theme</button>
+                        <button class="btn btn-danger" onclick="logOut()">Log Out</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>Created by: [Daniyal Ibrayev]</p>
+    </footer>
+
+    <script>
+        // Load user details
+        const user = JSON.parse(localStorage.getItem('currentUser'));
+        if (!user) {
+            window.location.href = 'index.html';
+        } else {
+            document.getElementById('profileName').textContent = user.name;
+            document.getElementById('profileEmail').textContent = user.email;
+            document.getElementById('welcomeName').textContent = user.name;
+        }
+
+        // Log out function
+        function logOut() {
+            localStorage.removeItem('currentUser');
+            window.location.href = 'index.html';
+        }
+
+        // Edit Profile Functionality
+        function editProfile() {
+            const newName = prompt("Enter new name:", user.name);
+            if (newName) {
+                user.name = newName;
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                document.getElementById('profileName').textContent = newName;
+                document.getElementById('welcomeName').textContent = newName;
+            }
+        }
+
+        // Update Profile Picture
+        function updateProfilePic(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('profilePic').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Save Preferences
+        document.getElementById('preferencesForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const preferences = Array.from(document.getElementById('sportsPreferences').selectedOptions).map(option => option.value);
+            user.preferences = preferences;
+            localStorage.setItem('currentUser', JSON.stringify(user));
+            alert('Preferences updated!');
+        });
+
+        // Toggle Theme
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+    <script src="DMode.js"></script>
+</body>
+
+
+</html>

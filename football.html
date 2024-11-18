@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sport News - Football</title>
+    
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="RMore.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">Sport News</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="football.html">Football</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="basketball.html">Basketball</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="volleyball.html">Tennis</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mt-4">
+        <h1 class="mb-4">Football News</h1>
+
+        <h2 id="footballHeadline"></h2>
+        <p id="footballSummary"></p>
+
+        <!-- Featured Article Section -->
+        <section class="row mb-4">
+            <div class="col-lg-8 mb-4">
+                <div class="card">
+                    <img src="images/Premier_League.webp" class="card-img-top" alt="Premier League">
+                    <div class="card-body">
+                        <h5 class="card-title">Premier League Highlights</h5>
+                        <p class="card-text">
+                            The Premier League saw some thrilling matches over the weekend. Manchester United secured a
+                            dramatic 3-2 victory over Liverpool, with a last-minute goal from Bruno Fernandes. Chelsea
+                            and Arsenal played out a 1-1 draw, while Manchester City continued their winning streak with
+                            a 4-0 win over Southampton. Tottenham Hotspur climbed to the top four after a convincing 3-1
+                            victory over Leicester City.
+                        </p>
+                        <p class="card-text">
+                            In other matches, Aston Villa stunned Everton with a 2-1 away win, and Wolves managed a
+                            narrow 1-0 victory against Brighton. The relegation battle is heating up with Watford and
+                            Norwich City both securing crucial wins.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card">
+                    <img src="images/CHleague.jpg" class="card-img-top" alt="Champions League">
+                    <div class="card-body">
+                        <h5 class="card-title">Champions League</h5>
+                        <p class="card-text">
+                            The Champions League quarter-finals are set, and some exciting clashes await. Real Madrid
+                            will face Manchester City in what promises to be a tactical battle between Pep Guardiola and
+                            Carlo Ancelotti. Bayern Munich will take on Paris Saint-Germain in a repeat of the 2020
+                            final.
+                        </p>
+                        <p class="card-text">
+                            Elsewhere, Liverpool are up against Benfica, and Chelsea will meet Villarreal. All eyes will
+                            be on these thrilling matches as Europe's top teams vie for a place in the semi-finals.
+                            Cristiano Ronaldo and Lionel Messi's teams have both been eliminated, adding more intrigue
+                            to this year's competition.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other Football News -->
+        <section class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <img src="images/la_liga.jpg" class="card-img-top" alt="La Liga">
+                    <div class="card-body">
+                        <h5 class="card-title">La Liga Updates</h5>
+                        <p id="shortText">La Liga title race is closer than ever, with Real Madrid and Barcelona both tied on points
+                            at the top of the table. Atletico Madrid slipped to third after a shocking 2-1 loss to Real
+                            Sociedad. Sevilla, currently in fourth place, are also in contention after a 3-0 win over
+                            Granada.</p>
+                            <p id="moreText" style="display:none;">In the bottom half, Getafe and Cadiz are struggling to avoid relegation. Valencia and Real
+                                Betis are fighting for a spot in the Europa League, with both teams showing impressive form
+                                recently.</p>
+                                <button id="readMoreBtn" class="btn btn-primary" onclick="toggleReadMore()">Read More</button>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <img src="images/serie_a.jpg" class="card-img-top" alt="Serie A">
+                    <div class="card-body">
+                        <h5 class="card-title">Serie A Highlights</h5>
+                        <p class="card-text">
+                            Serie A continues to deliver exciting football, with AC Milan holding on to the top spot
+                            after a 2-1 win over Napoli. Inter Milan and Juventus are hot on their heels, with both
+                            teams securing crucial wins against AS Roma and Fiorentina, respectively.
+                        </p>
+                        <p class="card-text">
+                            In the race for Champions League qualification, Atalanta and Lazio are battling it out for
+                            the final spot, with Roma also in the mix. At the bottom, Genoa and Sampdoria are fighting
+                            to stay in the top flight, while newly-promoted Salernitana looks set for relegation after
+                            a string of poor results.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <img src="images/bundesliga.jpg" class="card-img-top" alt="Bundesliga">
+                    <div class="card-body">
+                        <h5 class="card-title">Bundesliga News</h5>
+                        <p class="card-text">
+                            Bayern Munich extended their lead at the top of the Bundesliga with a 5-1 demolition of
+                            Borussia Dortmund in Der Klassiker. Robert Lewandowski scored a hat-trick, taking his tally
+                            to 30 goals for the season.
+                        </p>
+                        <p class="card-text">
+                            RB Leipzig climbed to second place after a 2-0 win over Bayer Leverkusen. Borussia Monchengladbach
+                            secured a crucial win against Wolfsburg to stay in the hunt for a European spot, while Schalke
+                            and Hertha Berlin are battling it out to avoid relegation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>Created by: [Daniyal Ibrayev]</p>
+
+        
+
+        <button onclick="showPopup()" class="btn btn-primary">Contact Us</button>
+
+
+        <div id="popupForm" class="popup" style="display:none;">
+            <div class="popup-content">
+                <span onclick="closePopup()" class="close-btn">&times;</span>
+                <h2>Contact Us</h2>
+                <form>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required><br><br>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required><br><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+        
+
+    </footer>
+
+    
+
+
+
+    <!-- Bootstrap JS and Dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="ReadMore.js"></script>
+    
+    
+    <script src="popUp.js"></script>
+    
+</body>
+</html>

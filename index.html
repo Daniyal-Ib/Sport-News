@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="4345014.ico" type="image/x-icon">
+    <title>Sport News - Home</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="FAQStyle.css">
+    <link rel="stylesheet" href="DarkMode.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Sport News</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="football.html">Football</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="basketball.html">Basketball</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="volleyball.html">Volleyball</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="movies.html">Sports Movies</a>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-primary nav-link" onclick="openModal('logInModal')">Log In</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-success nav-link" onclick="openModal('signUpModal')">Sign Up</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mt-4">
+        <!-- Carousel Section -->
+        <div id="carouselExampleIndicators" class="carousel slide mb-4" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/Football1.jpeg" class="d-block w-100" alt="Football">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/Basketball.webp" class="d-block w-100" alt="Basketball">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/Volleyball.jpeg" class="d-block w-100" alt="Volleyball">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <!-- Additional Sections -->
+        <section class="row mb-4">
+            <div class="col-lg-6 mb-4">
+                <h2>Latest Updates</h2>
+                <p>Welcome to the latest updates on all sports around the globe. Stay tuned for daily news on football,
+                    basketball, tennis, and much more.</p>
+            </div>
+            <div class="col-lg-6">
+                <h2>Football: Premier League Highlights</h2>
+                <figure>
+                    <img src="images/Premier_League.webp" class="img-fluid" alt="Football match">
+                    <figcaption>Premier League action from last night.</figcaption>
+                </figure>
+                <p>Catch all the action from the Premier League matches...</p>
+            </div>
+        </section>
+
+        <!-- Subscription Form -->
+        <section class="mb-4">
+            <h2>Subscribe for Daily Updates</h2>
+            <form action="submit.html" method="get" class="form-inline">
+                <label class="sr-only" for="subscribe">Email address</label>
+                <input type="email" id="subscribe" name="email" class="form-control mb-2 mr-sm-2"
+                    placeholder="Enter your email">
+                <input type="submit" class="btn btn-primary mb-2" value="Subscribe">
+            </form>
+        </section>
+    </main>
+    <h2 class="accordion">What is Sport News?</h2>
+    <div class="panel">
+        <p>Sport News is a platform that provides the latest updates on various sports such as football, basketball, and volleyball.</p>
+    </div>
+    <h2 class="accordion">How often is the content updated?</h2>
+    <div class="panel">
+        <p>Our content is updated daily to provide you with the most recent sports news from around the world.</p>
+    </div>
+
+    <h2 class="accordion">Can I subscribe for updates?</h2>
+    <div class="panel">
+        <p>Yes, you can subscribe by entering your email in the subscription form on the homepage.</p>
+    </div>
+
+    <!-- Authentication Modals -->
+    <div id="signUpModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('signUpModal')">&times;</span>
+            <h2>Sign Up</h2>
+            <form id="signUpForm">
+                <label for="signUpName">Name:</label>
+                <input type="text" id="signUpName" required>
+                <label for="signUpEmail">Email:</label>
+                <input type="email" id="signUpEmail" required>
+                <label for="signUpPassword">Password:</label>
+                <input type="password" id="signUpPassword" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="logInModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('logInModal')">&times;</span>
+            <h2>Log In</h2>
+            <form id="logInForm">
+                <label for="logInEmail">Email:</label>
+                <input type="email" id="logInEmail" required>
+                <label for="logInPassword">Password:</label>
+                <input type="password" id="logInPassword" required>
+                <button type="submit">Log In</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>Created by: [Daniyal Ibrayev]</p>
+        <button id="themeToggle" class="btn btn-primary">Toggle Theme</button>
+    </footer>
+
+    <!-- Bootstrap JS and Custom JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="validation.js"></script>
+    <script src="FAQ.js"></script>
+    <script src="DMode.js"></script>
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
